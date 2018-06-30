@@ -1,0 +1,1 @@
+.uint(1):.uint(1):.uint(11):((((.uint(8):!(._:== "aaaaaaaa@mm~")&.uint(9):!(._:== "aaaaaaaa@mm~"))&.uint(8):!(._:== "bbbbbbb@~"))&.uint(9):!(._:== "bbbbbbb@~"))&(.uint(8):._:== "mmm.dddddddaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaasss~"|.uint(9):._:== "mmm.dddddddaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaasss~"))

@@ -17,6 +17,7 @@ package main
 import (
 	"github.com/gogo/protobuf/proto"
 	. "github.com/katydid/katydid/relapse/combinator"
+	rparser "github.com/katydid/katydid/relapse/parser"
 )
 
 var Ab21FinanceJudo = &FinanceJudo{
@@ -122,4 +123,81 @@ var InAnyExceptSaladWorryFinanceJudo = G{
 
 func init() {
 	ValidateProtoEtc("Ab21InAnyExceptSaladWorry", InAnyExceptSaladWorryFinanceJudo, Ab21FinanceJudo, false)
+}
+
+func init() {
+	grammar1 := `.FinanceJudo:.SaladWorry:.SpyCarpenter:
+(
+	(
+		(
+			(
+					.BridgePepper:!(._ == "aaaaaaaa@mm~")
+				&
+					.FountainTarget:!(._ == "aaaaaaaa@mm~")
+			)
+			&
+			.BridgePepper:!(._ == "bbbbbbb@~")
+		)
+		&
+		.FountainTarget:!(._ == "bbbbbbb@~")
+	)
+	&
+	(
+			.BridgePepper:._ == "mmm.ddddddd~"
+		|
+			.FountainTarget:._ == "mmm.ddddddd~"
+	)
+)`
+
+	grammar, err := rparser.ParseGrammar(grammar1)
+	if err != nil {
+		panic(err)
+	}
+	var FalsePuddingMatch = G{"main": grammar.GetTopPattern()}
+	msg := &PuddingMilkshake{FinanceJudo: &FinanceJudo{SaladWorry: &SaladWorry{SpyCarpenter: &SpyCarpenter{
+		BridgePepper:   []string{"isHOrIGyoLbdXZ9a4t4abCuoFvDpXvxgscJQYRGZ6u"},
+		FountainTarget: []string{"oqqST33HqlR5s30O61mPwPnXGrwM5AIRWwDQ1YDPZcr8iP56B7AFwemBq1MfsNojkOAPlkt58RuaNn7pTgV66TSpp"},
+	}}}}
+
+	ValidateProtoName("PuddingMilkShakeFalseMatch1WithProtoName", FalsePuddingMatch, msg, false)
+	ValidateProtoNum("PuddingMilkShakeFalseMatch1WithProtoNum", FalsePuddingMatch, msg, false)
+}
+
+
+func init() {
+	grammar1 := `.FinanceJudo:.SaladWorry:.SpyCarpenter:
+(
+	(
+		(
+			(
+					.BridgePepper:!(._ == "aaaaaaaa@mm~")
+				&
+					.FountainTarget:!(._ == "aaaaaaaa@mm~")
+			)
+			&
+			.BridgePepper:!(._ == "bbbbbbb@~")
+		)
+		&
+		.FountainTarget:!(._ == "bbbbbbb@~")
+	)
+	&
+	(
+			.BridgePepper:._ == "mmm.dddddddaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaasss~"
+		|
+			.FountainTarget:._ == "mmm.dddddddaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaasss~"
+	)
+)`
+
+	grammar, err := rparser.ParseGrammar(grammar1)
+	if err != nil {
+		panic(err)
+	}
+	var FalsePuddingMatch = G{"main": grammar.GetTopPattern()}
+	msg := &PuddingMilkshake{FinanceJudo: &FinanceJudo{SaladWorry: &SaladWorry{SpyCarpenter: &SpyCarpenter{
+		BridgePepper:   []string{"isHOrIGyoLbdXZ9a4t4abCuoFvDpXvxgscJQYRGZ6u"},
+		FountainTarget: []string{"oqqST33HqlR5s30O61mPwPnXGrwM5AIRWwDQ1YDPZcr8iP56B7AFwemBq1MfsNojkOAPlkt58RuaNn7pTgV66TSpp"},
+	}}}}
+
+	ValidateProtoName("PuddingMilkShakeFalseMatch2WithProtoName", FalsePuddingMatch, msg, false)
+	ValidateProtoNum("PuddingMilkShakeFalseMatch2WithProtoNum", FalsePuddingMatch, msg, false)
 }

@@ -58,7 +58,9 @@ func init() {
 		true,
 		23,
 		false,
+		struct{}{},
 		nil,
+		0,
 	}
 
 	ValidateProtoName("BananaLarger800Match", largerBanana, bananaSkin, true)

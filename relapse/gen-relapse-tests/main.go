@@ -15,6 +15,7 @@
 package main
 
 import (
+"fmt"
 	"encoding/json"
 	"encoding/xml"
 	"flag"
@@ -39,6 +40,7 @@ func main() {
 		path = flag.Args()[0]
 	}
 	for _, v := range Validators {
+		fmt.Printf("%v\n", v.Name)
 		codecFolder := filepath.Join(filepath.Join(path, "tests"), v.CodecName)
 		folder := filepath.Join(codecFolder, v.Name)
 		createFolder(folder)
