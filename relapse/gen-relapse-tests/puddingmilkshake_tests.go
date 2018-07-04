@@ -126,7 +126,7 @@ func init() {
 }
 
 func init() {
-	grammar1 := `.FinanceJudo:.SaladWorry:.SpyCarpenter:
+	g1 := `.FinanceJudo:.SaladWorry:.SpyCarpenter:
 (
 	(
 		(
@@ -149,23 +149,20 @@ func init() {
 	)
 )`
 
-	grammar, err := rparser.ParseGrammar(grammar1)
+	grammar1, err := rparser.ParseGrammar(g1)
 	if err != nil {
 		panic(err)
 	}
-	var FalsePuddingMatch = G{"main": grammar.GetTopPattern()}
 	msg := &PuddingMilkshake{FinanceJudo: &FinanceJudo{SaladWorry: &SaladWorry{SpyCarpenter: &SpyCarpenter{
 		BridgePepper:   []string{"isHOrIGyoLbdXZ9a4t4abCuoFvDpXvxgscJQYRGZ6u"},
 		FountainTarget: []string{"oqqST33HqlR5s30O61mPwPnXGrwM5AIRWwDQ1YDPZcr8iP56B7AFwemBq1MfsNojkOAPlkt58RuaNn7pTgV66TSpp"},
 	}}}}
 
-	ValidateProtoName("PuddingMilkShakeFalseMatch1WithProtoName", FalsePuddingMatch, msg, false)
-	ValidateProtoNum("PuddingMilkShakeFalseMatch1WithProtoNum", FalsePuddingMatch, msg, false)
+	ValidateProtoNumEtc("PuddingMilkShakeNotAny1", G{"main": grammar1.GetTopPattern()}, msg, false)
 }
 
-
 func init() {
-	grammar1 := `.FinanceJudo:.SaladWorry:.SpyCarpenter:
+	g2 := `.FinanceJudo:.SaladWorry:.SpyCarpenter:
 (
 	(
 		(
@@ -188,16 +185,14 @@ func init() {
 	)
 )`
 
-	grammar, err := rparser.ParseGrammar(grammar1)
+	grammar2, err := rparser.ParseGrammar(g2)
 	if err != nil {
 		panic(err)
 	}
-	var FalsePuddingMatch = G{"main": grammar.GetTopPattern()}
 	msg := &PuddingMilkshake{FinanceJudo: &FinanceJudo{SaladWorry: &SaladWorry{SpyCarpenter: &SpyCarpenter{
 		BridgePepper:   []string{"isHOrIGyoLbdXZ9a4t4abCuoFvDpXvxgscJQYRGZ6u"},
 		FountainTarget: []string{"oqqST33HqlR5s30O61mPwPnXGrwM5AIRWwDQ1YDPZcr8iP56B7AFwemBq1MfsNojkOAPlkt58RuaNn7pTgV66TSpp"},
 	}}}}
 
-	ValidateProtoName("PuddingMilkShakeFalseMatch2WithProtoName", FalsePuddingMatch, msg, false)
-	ValidateProtoNum("PuddingMilkShakeFalseMatch2WithProtoNum", FalsePuddingMatch, msg, false)
+	ValidateProtoNumEtc("PuddingMilkShakeNotAny2", G{"main": grammar2.GetTopPattern()}, msg, false)
 }
